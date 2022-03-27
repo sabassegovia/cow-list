@@ -76,13 +76,14 @@ class App extends React.Component {
         description: a.description
       }
     })
-    //   .then((result) => {
-    //     console.log('cow added');
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     console.log('error adding');
-    // })
+      .then((result) => {
+        console.log('cow added');
+        this.getCows();
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log('error adding');
+    })
   }
 
   render() {
