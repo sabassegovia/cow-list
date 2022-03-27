@@ -9,7 +9,8 @@ class App extends React.Component {
     this.state = {
       //clicked cow will have a true bool,
       //use that to do conditional
-      cows: []
+      cows: [],
+      cowToPost:''
     }
     this.getCows = this.getCows.bind(this);
     this.nameClick = this.nameClick.bind(this);
@@ -66,8 +67,22 @@ class App extends React.Component {
   }
 
   addCow(a) {
-    console.log('in add com, main app');
-    console.log(a)
+    console.log(a);
+    axios({
+      method: 'post',
+      url: '/api/cows',
+      data: {
+        name: a.name,
+        description: a.description
+      }
+    })
+    //   .then((result) => {
+    //     console.log('cow added');
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     console.log('error adding');
+    // })
   }
 
   render() {

@@ -6,6 +6,7 @@ const app = express();
 
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.json());
 
 app.get('/api/cows', (req, res) => {
   db.read((err, result) => {
@@ -18,12 +19,9 @@ app.get('/api/cows', (req, res) => {
 })
 
 app.post('/api/cows', (req, res) => {
-  // console.log('body from postman: ', req.body);
-  console.log('query from postman: ', req.query);
-  var name = req.query.name;
-  var description = req.query.description;
 
-  db.create({ name, description }, (err, result) => {
+  console.log(req.body);
+  db.create({name: req.body.name, description: req.body.description}, (err, result) => {
     if (err) {
       // consle.log(err);
       res.status(503).send('unable to add this MooMoo');

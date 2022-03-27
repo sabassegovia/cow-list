@@ -24,7 +24,7 @@ const create = (addThisMooMoo, cb) => {
   var insertThis = [];
   insertThis.push(addThisMooMoo.name);
   insertThis.push(addThisMooMoo.description);
-  console.log(insertThis);
+  // console.log(insertThis);
   connection.query('INSERT INTO cows (name, description) VALUES (?,?)', insertThis, (err, result) => {
     if (err) {
       // consl.elog('in error CREATE');

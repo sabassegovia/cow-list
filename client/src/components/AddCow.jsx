@@ -14,12 +14,12 @@ class AddCow extends React.Component {
 
   handleNameChange(e) {
     this.setState({
-      addMooCow: e.target.value
+      name: e.target.value
     })
   }
   handleDescriptionChange(e) {
     this.setState({
-      addMooDescription: e.target.value
+      description: e.target.value
     })
   }
 
